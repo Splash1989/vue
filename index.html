@@ -8,12 +8,15 @@
     <div v-on:mousemove="Koordinaten">
         <p>{{ name }}</p>
         <p>{{ age * 3 }}</p>
-        <p>{{ random() }}</p>
-        <img v-bind:src="image">
+        <p v-on:click="zufall">{{zahl}}</p>
+        <img v-on:mousemove.stop v-bind:src="image">
         <input type="text" style="opacity: 0.5" v-bind:value="name">
         <button v-on:click="addieren">Click me</button>
         <p>{{counter}}</p>
         <p>Koordinaten: {{x}} / {{y}}</p>
+        <input type="text" v-on:keyup.enter="alertone" v-on:keyup.space="alerttwo">
+        <input type="text" v-on:keydown.enter="eingabewert = $event.target.value">
+        <p>{{eingabewert}}</p>
     </div>
 </div>
 <script src="app.js"></script>
