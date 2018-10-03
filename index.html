@@ -14,9 +14,19 @@
         <button v-on:click="addieren">Click me</button>
         <p>{{counter}}</p>
         <p>Koordinaten: {{x}} / {{y}}</p>
-        <input type="text" v-on:keyup.enter="alertone" v-on:keyup.space="alerttwo">
+        <input type="text" v-on:keyup.enter="alertone" v-on:keyup.space="alerttwo" style="background-color: lightgreen">
         <input type="text" v-on:keydown.enter="eingabewert = $event.target.value">
-        <p>{{eingabewert}}</p>
+        <p style="opacity: 0.5; color: red">{{eingabewert}}</p>
+        <div>
+            <input type="text" v-model="nachname">
+            <p>{{nachname}}</p>
+        </div>
+    </div>
+    <!----------------second part---------------------->
+    <div>
+        <p>Bitte geben Sie eine Zahl zur Multiplikation mit PI ein</p>
+        <input type="text" v-modal="multiplikator">
+        <p>{{multiplikator}}</p>
     </div>
 </div>
 <script src="app.js"></script>

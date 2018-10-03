@@ -9,7 +9,9 @@ new Vue({
         x: 0,
         y: 0,
         zahl: 0,
-        eingabewert: ""
+        eingabewert: "",
+        nachname: "",
+        multiplikator: ""
     },
     methods: {
         zufall: function() {
