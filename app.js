@@ -11,7 +11,21 @@ new Vue({
         zahl: 0,
         eingabewert: "",
         nachname: "",
-        multiplikator: ""
+        multiplikator: "",
+        zaehler: 0
+    },
+    computed: {
+      ausgabe: function() {
+          return this.zaehler > 25 ? "groesser 25" : "kleiner gleich 25";
+      }
+    },
+    watch: {
+      counter: function(value){
+          var vm = this;
+          setTimeout(function(){
+            vm.counter = 0;
+          },2000)
+      }
     },
     methods: {
         zufall: function() {

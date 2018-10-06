@@ -5,17 +5,18 @@
 </head>
 <body >
 <div id="exercise">
-    <div v-on:mousemove="Koordinaten">
+    <div @mousemove="Koordinaten">
         <p>{{ name }}</p>
         <p>{{ age * 3 }}</p>
-        <p v-on:click="zufall">{{zahl}}</p>
-        <img v-on:mousemove.stop v-bind:src="image">
-        <input type="text" style="opacity: 0.5" v-bind:value="name">
-        <button v-on:click="addieren">Click me</button>
+        <p @click="zufall">{{zahl}}</p>
+        <img @mousemove.stop :src="image">
+        <input type="text" style="opacity: 0.5" :value="name">
+        <button @click="counter++">erhoehen</button>
+        <button @click="counter--">abziehen</button>
         <p>{{counter}}</p>
         <p>Koordinaten: {{x}} / {{y}}</p>
-        <input type="text" v-on:keyup.enter="alertone" v-on:keyup.space="alerttwo" style="background-color: lightgreen">
-        <input type="text" v-on:keydown.enter="eingabewert = $event.target.value">
+        <input type="text" @keyup.enter="alertone" @keyup.space="alerttwo" style="background-color: lightgreen">
+        <input type="text" @keydown.enter="eingabewert = $event.target.value">
         <p style="opacity: 0.5; color: red">{{eingabewert}}</p>
         <div>
             <input type="text" v-model="nachname">
@@ -27,6 +28,13 @@
         <p>Bitte geben Sie eine Zahl zur Multiplikation mit PI ein</p>
         <input type="text" v-modal="multiplikator">
         <p>{{multiplikator}}</p>
+    </div>
+    <div>
+        <p><button @click="zaehler += 5">+ 5</button></p>
+        <p><button @click="zaehler += 1">+ 1</button></p>
+        <button @click="zaehler = 0">Zaehler nullen</button>
+        <p>Wert von Zaehler: {{ zaehler }}</p>
+        <p>Ausgabe hier: {{ ausgabe }}</p>
     </div>
 </div>
 <script src="app.js"></script>
