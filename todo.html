@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body style="background-color: black">
+
+<div id="todo" style="margin-left: 40%; margin-top: 50px; color: azure; font-family: Arial; font-size: 15pt">
+    <ul>
+        <li v-for="eintrag in listitems">{{ eintrag.listelem }}</li>
+    </ul>
+    <input :value="nextTodo">
+    <button @click="addListelem">Add</button>
+
+</div>
+
+
+
+<script src="todo.js"></script>
+</body>
+</html>
