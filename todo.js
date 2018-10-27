@@ -3,10 +3,9 @@ new Vue({
     el: '#todo',
     data: {
         listitems: [
-            { listelem: 'Hallo' },
-            { listelem: 'Welt' }
+            {listelem: 'Hallo' },
+            {listelem: 'Welt' }
         ],
-
         nextTodo: ''
     },
 
@@ -14,7 +13,10 @@ new Vue({
       addListelem: function(){
           this.listitems.push({
               listelem: this.nextTodo
-          })
+
+          }),
+              console.warn("NextTodo", this.nextTodo),
+          this.nextTodo = ''
 
       }
     }

@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <title>Todo</title>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
 </head>
 <body style="background-color: black">
 
 <div id="todo" style="margin-left: 40%; margin-top: 50px; color: azure; font-family: Arial; font-size: 15pt">
+
     <ul>
         <li v-for="eintrag in listitems">{{ eintrag.listelem }}</li>
     </ul>
-    <input :value="nextTodo">
+    <input type="text" v-modal="nextTodo" @keyup.enter="addListelem" placeholder="z.B. Vue.js lernen">
     <button @click="addListelem">Add</button>
-
 </div>
-
-
 
 <script src="todo.js"></script>
 </body>
