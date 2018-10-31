@@ -1,22 +1,38 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Todo</title>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        #sortable { list-style-type: none; margin: 0; padding: 0; width: 30%;}
+        #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 15px; }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#sortable" ).sortable();
+            $( "#sortable" ).disableSelection();
+        } );
+    </script>
 </head>
 <body style="background-color: black">
 
-<div id="todo" style="margin-left: 40%; margin-top: 50px; color: azure; font-family: Arial; font-size: 15pt">
+<div id="todo" style="margin-left: 40%; margin-top: 50px; color: azure; font-family: Arial; font-size: 15pt;">
 
-    <ul>
-        <li v-for="eintrag in listitems">{{ eintrag.listelem }}</li>
+    <ul id="sortable" style="background-color: black;">
+        <li class="ui-state-default" v-for="eintrag in listitems" style="background-color: black; border: none">{{ eintrag.listelem }}</li>
     </ul>
-    <input type="text" v-modal="nextTodo" @keyup.enter="addListelem" placeholder="z.B. Vue.js lernen">
+    <input type="text" v-model="nextTodo" @keyup.enter="addListelem" placeholder="z.B. Vue.js lernen">
     <button @click="addListelem">Add</button>
 </div>
 
 <script src="todo.js"></script>
 </body>
 </html>
+
+

@@ -1,4 +1,3 @@
-
 new Vue({
     el: '#todo',
     data: {
@@ -11,14 +10,16 @@ new Vue({
 
     methods: {
       addListelem: function(){
+          if(this.nextTodo == ''){
+              return;
+          }
           this.listitems.push({
               listelem: this.nextTodo
 
           }),
-              console.warn("NextTodo", this.nextTodo),
           this.nextTodo = ''
-
       }
     }
 });
+
 
