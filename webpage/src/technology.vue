@@ -1,6 +1,7 @@
 <template>
     <div id="tecbackground">
-        <!--<p>Technologien</p>-->
+        <p>Technologien</p>
+        <img id="vuelogo" src="./picture/vuelogo.svg" alt="svg bild" style="" width="20" hight="20">
 
     </div>
 </template>
@@ -13,11 +14,15 @@
 
 <style scoped>
 
-    /*#tecbackground{*/
-        /*background-color: #3A01DF;*/
-        /*margin-top: 100px;*/
-        /*height: 500px;*/
+    #tecbackground{
+        background-color: #3A01DF;
+        margin-top: 100px;
+        height: 200px;
+        opacity: 0.7;
 
-    /*}*/
+    }
+    #vuelogo {
+
+    }
 
 </style>
