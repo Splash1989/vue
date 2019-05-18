@@ -1,6 +1,6 @@
 <template>
     <div id="tecbackground">
-        <p>HALLO WELT</p>
+        <!--<p>Technologien</p>-->
 
     </div>
 </template>
@@ -13,8 +13,11 @@
 
 <style scoped>
 
-    #tecbackground{
+    /*#tecbackground{*/
+        /*background-color: #3A01DF;*/
+        /*margin-top: 100px;*/
+        /*height: 500px;*/
 
-    }
+    /*}*/
 
 </style>
