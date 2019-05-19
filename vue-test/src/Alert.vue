@@ -1,6 +1,7 @@
 <template>
     <div class="alert success">
-        <slot/>
+        <slot name="title"/>
+        <slot name="description"/>
     </div>
 </template>
 
