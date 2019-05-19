@@ -3,7 +3,7 @@
     <NavBar></NavBar>
     <div>
       <p id="name">Michael Bund (B.Sc)</p>
-      <p id="job">Softwareentwickler</p>
+      <p id="job">Softwaredeveloper</p>
     </div>
     <technology></technology>
   </div>
@@ -12,6 +12,7 @@
 <script>
     import NavBar from './Navbar.vue'
     import technology from './technology.vue'
+    import Projects from './Projects.vue'
 
 export default {
   name: 'app',
@@ -22,7 +23,8 @@ export default {
   },
     components: {
         NavBar,
-        technology
+        technology,
+        Projects
     },
 }
 

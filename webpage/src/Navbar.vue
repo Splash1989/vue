@@ -46,10 +46,9 @@
     export default {
     }
 </script>
-
 <style scoped>
     .navbar {
-        opacity: 0.70;
+        opacity: 0.50;
     }
 
 </style>
