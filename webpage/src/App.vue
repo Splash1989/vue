@@ -5,7 +5,10 @@
       <p id="name">Michael Bund (B.Sc)</p>
       <p id="job">Softwaredeveloper</p>
     </div>
+    <Aboutme></Aboutme>
+    <Whatido></Whatido>
     <technology></technology>
+    <Projects></Projects>
   </div>
 </template>
 
@@ -13,6 +16,8 @@
     import NavBar from './Navbar.vue'
     import technology from './technology.vue'
     import Projects from './Projects.vue'
+    import Whatido from './Whatido.vue'
+    import Aboutme from './Aboutme.vue'
 
 export default {
   name: 'app',
@@ -24,7 +29,9 @@ export default {
     components: {
         NavBar,
         technology,
-        Projects
+        Projects,
+        Whatido,
+        Aboutme
     },
 }
 

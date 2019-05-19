@@ -1,10 +1,10 @@
 <template>
-    <div>HALLO</div>
+    
 </template>
 
 <script>
     export default {
-        name: "Projects"
+        name: "Whatido"
     }
 </script>
 
