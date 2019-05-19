@@ -1,10 +1,19 @@
 <template>
-    <div>HALLO</div>
+    <div>
+        <div>Memory Game</div>
+        <Memory></Memory>
+        <div>Other Game</div>
+    </div>
 </template>
 
 <script>
+    import Memory from './Memory/Memory.vue'
+
     export default {
-        name: "Projects"
+        name: "Projects",
+        components: {
+            Memory
+        }
     }
 </script>
 

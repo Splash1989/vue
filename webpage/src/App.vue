@@ -2,12 +2,12 @@
   <div>
     <NavBar></NavBar>
     <div>
-      <p id="name">Michael Bund (B.Sc)</p>
+      <p id="name">Lorem Ipsum (B.Sc)</p>
       <p id="job">Softwaredeveloper</p>
     </div>
+    <technology></technology>
     <Aboutme></Aboutme>
     <Whatido></Whatido>
-    <technology></technology>
     <Projects></Projects>
   </div>
 </template>
