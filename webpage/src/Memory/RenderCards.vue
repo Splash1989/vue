@@ -7,6 +7,7 @@
 
 <script>
     import Memory from "./Memory.vue";
+    import {eventBus} from '../../main.js'
 
     export default {
         name: "RenderCards",
