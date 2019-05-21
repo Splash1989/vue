@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="memorygame">
         <p>Eingabe</p>
 
     </div>
@@ -12,5 +12,6 @@
 </script>
 
 <style scoped>
+    #memorygame {}
 
 </style>

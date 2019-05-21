@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="projects">
         <div>Memory Game</div>
         <Memory></Memory>
         <div>Other Game</div>
@@ -18,5 +18,6 @@
 </script>
 
 <style scoped>
+    #projects {}
 
 </style>
