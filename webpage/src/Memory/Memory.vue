@@ -4,22 +4,41 @@
         <p>How many cards?</p>
         <input id="amountofcards" placeholder="Enter number" v-model="cardamount">
         <button :disabled="isNumberEmpty" id="startbutton" @click="rendercards">Start game</button>
+        <button id="endbutton" @click="endgame">End game</button>
+        <RenderCards></RenderCards>
     </div>
 </template>
 
 <script>
+    import {eventBus} from '../main.js'
+    import RenderCards from "./RenderCards";
+
     export default {
         name: "Memory",
 
+        components: {
+            RenderCards
+        },
+
         data () {
             return {
-                cardamount: ''
+                cardamount: '',
+                startgame: ''
             }
         },
 
+
         methods: {
             rendercards() {
-                console.warn('Hello Word', this.cardamount);
+                eventBus.$emit('rendercards', {
+                    cardamount: this.cardamount,
+                    startgame: 1
+                })
+            },
+            endgame() {
+                eventBus.$emit('endgame', {
+                    startgame: 1
+                })
             }
         },
 
