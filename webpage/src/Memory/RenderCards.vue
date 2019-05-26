@@ -1,7 +1,7 @@
 <template>
     <div id="list">
         <div class="listfield">
-            <p class="memoryfield" @click="showCard" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
+            <p class="memoryfield" @click="checkCards" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
         </div>
     </div>
 </template>
@@ -18,6 +18,8 @@
               startsorting: '',
               startgame: '',
               sortedFields: '',
+              counter: 0,
+              zuege: '',
 
               fields: ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
                        '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
@@ -51,9 +53,28 @@
                 return array;
             },
 
-            showCard (node) {
+            checkCards (node) {
                 node.currentTarget.style.backgroundColor = 'white';
-                console.warn('NODE - - - ', node.target)
+                this.counter = this.counter + 1;
+                if (this.counter <= 2) {
+                    if(this.counter == 2){
+                        this.zuege += 1;
+                        var nodes = document.querySelectorAll('p[style="background-color: white;"]');
+
+                        if(nodes[0].textContent == nodes[1].textContent){
+                            nodes[0].style.backgroundColor = 'green';
+                            nodes[1].style.backgroundColor = 'green';
+                        }
+
+                        if(nodes[0].textContent != nodes[1].textContent){
+                            setTimeout(function(){
+                                nodes[0].style.backgroundColor = 'blue';
+                                nodes[1].style.backgroundColor = 'blue';
+                            }, 2000);
+                        }
+                        this.counter = 0;
+                    }
+                }
             }
         }
 
