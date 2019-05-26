@@ -1,7 +1,7 @@
 <template>
     <div id="list">
         <div class="listfield">
-            <p class="memoryfield" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
+            <p class="memoryfield" @click="showCard" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
         </div>
     </div>
 </template>
@@ -47,13 +47,13 @@
                     array[currentIndex] = array[randomIndex];
                     array[randomIndex] = temporaryValue;
                 }
-                console.warn('Sortiert- - - ', array);
                 this.startgame = 1;
                 return array;
             },
 
             showCard (node) {
-                console.warn('NODE - - - ', node)
+                node.currentTarget.style.backgroundColor = 'white';
+                console.warn('NODE - - - ', node.target)
             }
         }
 
