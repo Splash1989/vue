@@ -54,25 +54,32 @@
             },
 
             checkCards (node) {
-                node.currentTarget.style.backgroundColor = 'white';
+                if (!node) {
+                    return;
+                }
+
                 this.counter = this.counter + 1;
-                if (this.counter <= 2) {
-                    if(this.counter == 2){
+                var _this = this;
+
+                if (_this.counter <= 2) {
+                    node.currentTarget.style.backgroundColor = 'white';
+                    if(_this.counter == 2){
                         this.zuege += 1;
                         var nodes = document.querySelectorAll('p[style="background-color: white;"]');
 
                         if(nodes[0].textContent == nodes[1].textContent){
                             nodes[0].style.backgroundColor = 'green';
                             nodes[1].style.backgroundColor = 'green';
+                            _this.counter = 0;
                         }
 
                         if(nodes[0].textContent != nodes[1].textContent){
                             setTimeout(function(){
                                 nodes[0].style.backgroundColor = 'blue';
                                 nodes[1].style.backgroundColor = 'blue';
+                                _this.counter = 0;
                             }, 2000);
                         }
-                        this.counter = 0;
                     }
                 }
             }
