@@ -1,6 +1,10 @@
 <template>
     <div>
-        <p v-if="startgame">Zuege {{zuege}}</p>
+        <p v-if="startgame">moves {{zuege}}</p>
+        <p v-if="startgame">complexity factor: </p>
+        <button v-if="startgame" v-model="factor">easy</button>
+        <button v-if="startgame" v-model="factor">hard</button>
+        <button v-if="startgame" v-model="factor">nightmare</button>
         <div id="list">
             <div class="listfield">
                 <p class="memoryfield" @click="checkCards" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
@@ -23,11 +27,23 @@
               sortedFields: '',
               counter: 0,
               zuege: 0,
+              factor: 0,
               nodes: [],
 
-              fields: ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
-                       '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
-                       '15', '15']
+              fields:
+                  ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
+                      '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
+                       '15', '15'],
+
+              fieldshard:
+                  ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
+                  '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
+                  '15', '15'],
+
+              fieldsnightmare:
+                  ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
+                  '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
+                  '15', '15'],
           }
         },
 
