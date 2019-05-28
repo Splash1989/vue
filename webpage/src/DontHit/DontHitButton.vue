@@ -1,6 +1,6 @@
 <template>
     <div id="donthitbutton">
-
+        <button>Dont push this button</button>
     </div>
 </template>
 

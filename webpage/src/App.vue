@@ -9,6 +9,7 @@
     <Aboutme></Aboutme>
     <Whatido></Whatido>
     <Projects></Projects>
+    <DontHitButton></DontHitButton>
   </div>
 </template>
 
@@ -18,6 +19,7 @@
     import Projects from './Projects.vue'
     import Whatido from './Whatido.vue'
     import Aboutme from './Aboutme.vue'
+    import DontHitButton from './DontHit/DontHitButton.vue'
 
 export default {
   name: 'app',
@@ -31,7 +33,8 @@ export default {
         technology,
         Projects,
         Whatido,
-        Aboutme
+        Aboutme,
+        DontHitButton
     },
 }
 
