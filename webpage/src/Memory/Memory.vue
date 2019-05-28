@@ -4,6 +4,7 @@
         <p>How many cards?</p>
         <input id="amountofcards" placeholder="Enter number" v-model="cardamount">
         <button :disabled="isNumberEmpty" id="startbutton" @click="rendercards">Start game</button>
+        <button @click="remove">End game</button>
         <RenderCards></RenderCards>
     </div>
 </template>
@@ -22,7 +23,8 @@
         data () {
             return {
                 cardamount: '',
-                startsorting: ''
+                startgame: 0,
+                startsorting: '',
             }
         },
 
@@ -31,7 +33,12 @@
             rendercards() {
                 eventBus.$emit('rendercards', {
                     cardamount: this.cardamount,
-                    startsorting: 1
+                    startsorting: 1,
+                })
+            },
+            remove() {
+                eventBus.$emit('remove', {
+                    startgame: 0
                 })
             },
         },

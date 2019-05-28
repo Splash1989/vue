@@ -1,7 +1,10 @@
 <template>
-    <div id="list">
-        <div class="listfield">
-            <p class="memoryfield" @click="checkCards" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
+    <div>
+        <p v-if="startgame">Zuege {{zuege}}</p>
+        <div id="list">
+            <div class="listfield">
+                <p class="memoryfield" @click="checkCards" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -19,7 +22,8 @@
               startgame: '',
               sortedFields: '',
               counter: 0,
-              zuege: '',
+              zuege: 0,
+              nodes: [],
 
               fields: ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
                        '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
@@ -32,6 +36,10 @@
                 this.cardamount = data.cardamount,
                 this.startsorting = data.startsorting,
                 this.sortedFields = this.sortFields(this.fields)
+            })
+            eventBus.$on('remove', data => {
+                this.startgame = data.startgame,
+                this.zuege = 0
             })
         },
 
@@ -64,7 +72,7 @@
                 if (_this.counter <= 2) {
                     node.currentTarget.style.backgroundColor = 'white';
                     if(_this.counter == 2){
-                        this.zuege += 1;
+                        this.zuege = this.zuege + 1;
                         var nodes = document.querySelectorAll('p[style="background-color: white;"]');
 
                         if(nodes[0].textContent == nodes[1].textContent){
@@ -96,6 +104,9 @@
         background-color: blue;
         display: inline-block;
         margin-top: 0px;
+        -ms-user-select: None;
+        -moz-user-select: None;
+        -webkit-user-select: None;
     }
 
     .memoryfield:hover {
