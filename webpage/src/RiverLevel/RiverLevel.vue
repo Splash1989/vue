@@ -1,10 +1,12 @@
 <template>
     <div id="riverLevel">
-        <img
-                src="https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/measurements.png?start=P15D&width=925&height=220"
-                width="925"
-                height="220"/>
-        <!--<p>{{riverObject}}</p>-->
+        <trend
+                :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+                :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+                auto-draw
+                smooth
+        >
+        </trend>
         <table class="table table-hover table-dark">
             <thead>
             <tr>
@@ -16,8 +18,8 @@
             <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>{{riverObject.data.timestamp}}</td>
-                <td>{{riverObject.data.value}}</td>
+                <td>{{this.riverObject.data.timestamp}}</td>
+                <td>{{this.riverObject.data.value}}</td>
             </tr>
             </tbody>
         </table>
@@ -34,11 +36,16 @@
 
         data () {
             return {
-                riverObject: {}
+                riverObject: {},
             }
         },
 
         mounted() {
+            var _this = this;
+            setInterval (function () {
+                axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/currentmeasurement.json")
+                    .then(response => _this.riverObject = response)
+            }, 5000);
             axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/currentmeasurement.json")
                 .then(response => this.riverObject = response)
         }
