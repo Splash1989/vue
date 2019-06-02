@@ -10,6 +10,7 @@
     <Whatido></Whatido>
     <Projects></Projects>
     <DontHitButton></DontHitButton>
+    <RiverLevel></RiverLevel>
   </div>
 </template>
 
@@ -20,6 +21,7 @@
     import Whatido from './Whatido.vue'
     import Aboutme from './Aboutme.vue'
     import DontHitButton from './DontHit/DontHitButton.vue'
+    import RiverLevel from './RiverLevel/RiverLevel.vue'
 
 export default {
   name: 'app',
@@ -34,7 +36,8 @@ export default {
         Projects,
         Whatido,
         Aboutme,
-        DontHitButton
+        DontHitButton,
+        RiverLevel
     },
 }
 
