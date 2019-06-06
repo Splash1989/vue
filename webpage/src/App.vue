@@ -11,6 +11,7 @@
     <Projects></Projects>
     <DontHitButton></DontHitButton>
     <RiverLevel></RiverLevel>
+      <FitnessTrack></FitnessTrack>
   </div>
 </template>
 
@@ -22,6 +23,7 @@
     import Aboutme from './Aboutme.vue'
     import DontHitButton from './DontHit/DontHitButton.vue'
     import RiverLevel from './RiverLevel/RiverLevel.vue'
+    import FitnessTrack from './FitnessTrack/FitnessTrack.vue'
 
 export default {
   name: 'app',
@@ -37,7 +39,8 @@ export default {
         Whatido,
         Aboutme,
         DontHitButton,
-        RiverLevel
+        RiverLevel,
+        FitnessTrack
     },
 }
 
