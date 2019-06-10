@@ -46,30 +46,44 @@
                 waterGauge: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 storage: '',
                 timeline: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-                i: 0
+                i: 0,
+                y: 0,
+                z: 0,
+                newArray: []
             }
         },
 
         mounted() {
             var _this = this;
             setInterval (function () {
-                axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/currentmeasurement.json")
+                axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/measurements.json?start=P15D")
                     .then(response => _this.riverObject = response);
                 _this.newPost();
             }, 5000);
-            axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/currentmeasurement.json")
+            axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/measurements.json?start=P15D")
                 .then(response => this.riverObject = response)
+                // .then(response => console.warn('AUSGABE', response.data))
         },
 
         methods: {
             newPost() {
-                if (this.storage !== this.riverObject.data.timestamp) {
-                    this.storage = this.riverObject.data.timestamp;
-                    this.timeline[this.i] = this.riverObject.data.timestamp.replace(/(^.{11})/gm, '');
-                    this.timeline[this.i] =  this.timeline[this.i].replace(/(...\+.*)/gm, '');
-                    this.waterGauge[this.i] = this.riverObject.data.value - 100;
-                    this.i++;
+
+                if (this.storage !== this.riverObject.data[1439].timestamp) {
+                    this.storage = this.riverObject.data[1439].timestamp;
+                    this.z = 0;
+                    for (this.y = 1424; this.y <= 1439; this.y++) {
+                        this.waterGauge[this.z] = this.riverObject.data[this.y].value;
+
+                        this.timeline[this.z] = this.riverObject.data[this.y].timestamp.replace(/(^.{11})/gm, '');
+                        this.timeline[this.z] =  this.timeline[this.z].replace(/(...\+.*)/gm, '');
+
+
+                        console.warn('Einzelwertausgabe - - - ', this.riverObject.data[this.y].value);
+                        this.z++
+                    }
                 }
+
+                console.warn('WERDE AUFGERUFEN - - -', this.riverObject.data[1439].value, this.riverObject.data[1439].timestamp);
             }
 
         }
@@ -81,7 +95,7 @@
     #riverLevel {}
 
     .timeline {
-        display: grid;
+        display: flex;
         text-align: center;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 1px;
