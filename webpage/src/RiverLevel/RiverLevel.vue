@@ -10,6 +10,9 @@
                 smooth
         >
         </trend>
+        <div class="timeline">
+            <p class="timelineentry"  v-for="time in timeline">{{time}}</p>
+        </div>
         <table class="table table-hover table-dark">
             <thead>
             <tr>
@@ -42,6 +45,7 @@
                 riverObject: {},
                 waterGauge: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 storage: '',
+                timeline: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
                 i: 0
             }
         },
@@ -50,7 +54,7 @@
             var _this = this;
             setInterval (function () {
                 axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/currentmeasurement.json")
-                    .then(response => _this.riverObject = response)
+                    .then(response => _this.riverObject = response);
                 _this.newPost();
             }, 5000);
             axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/currentmeasurement.json")
@@ -61,12 +65,10 @@
             newPost() {
                 if (this.storage !== this.riverObject.data.timestamp) {
                     this.storage = this.riverObject.data.timestamp;
-                    this.waterGauge[this.i] = this.riverObject.data.value;
-                    console.warn('HALLO HIER SPRICHT NEW POST');
-                    console.warn('WATERGAUGE- - - ', this.waterGauge);
+                    this.timeline[this.i] = this.riverObject.data.timestamp.replace(/(^.{11})/gm, '');
+                    this.timeline[this.i] =  this.timeline[this.i].replace(/(...\+.*)/gm, '');
+                    this.waterGauge[this.i] = this.riverObject.data.value - 100;
                     this.i++;
-                } else {
-                    console.warn('WERTE SIND GLEICH');
                 }
             }
 
@@ -77,6 +79,14 @@
 <style scoped>
 
     #riverLevel {}
+
+    .timeline {
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 1px;
+        background-color: #2EFE2E
+    }
 
     .table {
         margin-top: 20px;

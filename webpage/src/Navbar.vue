@@ -24,7 +24,9 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Memorycard game</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Another game</a>
+                            <a class="dropdown-item" href="#">Dont push this button</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Water gauge</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
