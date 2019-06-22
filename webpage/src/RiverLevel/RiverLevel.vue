@@ -1,14 +1,16 @@
 <template>
     <div id="riverLevel">
+        <div>Riverlevel of Elbe in Dresden</div>
         <div id="graph">
             <table class="watergauge">
-                <tr v-for="level in newArray">{{level}} cm</tr>
+                <tr class="line" >{{this.newArray[0]}} cm</tr>
+                <tr class="line" >{{this.waterGauge[this.length]}} cm</tr>
             </table>
             <trend
-                    :data="[waterGauge[0], waterGauge[1], waterGauge[2], waterGauge[3],
-                    waterGauge[4], waterGauge[5], waterGauge[6], waterGauge[7], waterGauge[8],
-                    waterGauge[9], waterGauge[10], waterGauge[11], waterGauge[12], waterGauge[13],
-                    waterGauge[14]]"
+                    :data="[this.waterGauge[0], this.waterGauge[1], this.waterGauge[2], this.waterGauge[3],
+                    this.waterGauge[4], this.waterGauge[5], this.waterGauge[6], this.waterGauge[7], this.waterGauge[8],
+                    this.waterGauge[9], this.waterGauge[10], this.waterGauge[11], this.waterGauge[12], this.waterGauge[13],
+                    this.waterGauge[14]]"
                     :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
                     auto-draw
                     smooth
@@ -18,24 +20,6 @@
         <div class="timeline">
             <p class="timelineentry"  v-for="time in timeline">{{time}}</p>
         </div>
-        <table class="table table-hover table-dark">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">timestamp</th>
-                <th scope="col">hight in cm</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>{{this.riverObject.data.timestamp}}</td>
-                <td>{{this.riverObject.data.value}}</td>
-            </tr>
-            </tbody>
-        </table>
-
-
     </div>
 </template>
 
@@ -54,8 +38,9 @@
                 i: 0,
                 y: 0,
                 z: 0,
+                length: 0,
                 same: 0,
-                newArray: []
+                newArray: [],
             }
         },
 
@@ -81,6 +66,7 @@
                     }
                 });
                 this.newArray.sort();
+                this.length = this.newArray.length - 1;
                 this.newArray.reverse();
             },
 
@@ -126,10 +112,10 @@
     }
 
     .watergauge {
-    }
-
-    .table {
-        margin-top: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
 </style>
