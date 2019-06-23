@@ -4,7 +4,7 @@
         <div id="graph">
             <table class="watergauge">
                 <tr class="line" >{{this.newArray[0]}} cm</tr>
-                <tr class="line" >{{this.waterGauge[this.length]}} cm</tr>
+                <tr class="line" >{{this.newArray[this.length]}} cm</tr>
             </table>
             <trend
                     :data="[this.waterGauge[0], this.waterGauge[1], this.waterGauge[2], this.waterGauge[3],
