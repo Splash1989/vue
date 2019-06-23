@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="ie">
+      <p class="internetexplorer">test</p>
+    </div>
       <router-view></router-view>
     <div id="startimpressum">
       <router-link to="/Impressum">Impressum</router-link>
@@ -21,7 +24,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+        ie: 0
     }
   },
     components: {
@@ -34,6 +37,19 @@ export default {
         RiverLevel,
         FitnessTrack
     },
+
+    methods: {
+        checkUserAgent() {
+            if (/Trident/.test(window.navigator.userAgent) || /Internet Explorer/.test(window.navigator.appName)) {
+                ie = 1;
+            }
+        }
+    },
+
+    mounted() {
+        this.checkUserAgent();
+    },
+
 }
 
 </script>
@@ -53,6 +69,10 @@ export default {
   #startimpressum {
     padding-bottom: 20px;
     text-align: center;
+  }
+
+  .internetexplorer {
+    color: black;
   }
 
 </style>
