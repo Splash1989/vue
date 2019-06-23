@@ -1,6 +1,9 @@
 <template>
   <div>
       <router-view></router-view>
+    <div id="startimpressum">
+      <router-link to="/Impressum">Impressum</router-link>
+    </div>
   </div>
 </template>
 
@@ -45,6 +48,11 @@ export default {
     font-size: 30px;
     text-align: center;
     color: white;
+  }
+
+  #startimpressum {
+    padding-bottom: 20px;
+    text-align: center;
   }
 
 </style>
