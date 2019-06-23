@@ -25,10 +25,8 @@
 
 <script>
     import axios from "axios";
-
     export default {
         name: "RiverLevel",
-
         data () {
             return {
                 riverObject: {},
@@ -43,7 +41,6 @@
                 newArray: [],
             }
         },
-
         mounted() {
             var _this = this;
             setInterval (function () {
@@ -54,9 +51,7 @@
             axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/measurements.json?start=P15D")
                 .then(response => this.riverObject = response)
         },
-
         methods: {
-
             getTableLevel() {
                 this.newArray = [];
                 this.waterGauge.forEach(a => {
@@ -69,33 +64,26 @@
                 this.length = this.newArray.length - 1;
                 this.newArray.reverse();
             },
-
             newPost() {
                 var _this = this;
-
                 if (this.storage !== this.riverObject.data[1439].timestamp) {
                     this.storage = this.riverObject.data[1439].timestamp;
                     this.z = 0;
                     for (this.y = 1424; this.y <= 1439; this.y++) {
                         this.waterGauge[this.z] = this.riverObject.data[this.y].value;
-
                         this.timeline[this.z] = this.riverObject.data[this.y].timestamp.replace(/(^.{11})/gm, '');
                         this.timeline[this.z] =  this.timeline[this.z].replace(/(...\+.*)/gm, '');
-
                         this.z++
                     }
                 }
                 _this.getTableLevel();
             }
-
         }
     }
 </script>
 
 <style scoped>
-
     #riverLevel {}
-
     .timeline {
         display: flex;
         text-align: center;
@@ -105,17 +93,14 @@
         margin-left: 30px;
         justify-content: space-around;
     }
-
     #graph {
         display: flex;
         grid-template-colums: 1fr 1fr;
     }
-
     .watergauge {
         margin-top: auto;
         margin-bottom: auto;
         display: grid;
         grid-template-columns: 1fr;
     }
-
 </style>
