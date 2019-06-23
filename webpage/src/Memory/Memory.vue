@@ -1,5 +1,6 @@
 <template>
     <div id="memorygame">
+        <NavBar></NavBar>
         <p>Eingabe</p>
         <p>How many cards?</p>
         <input id="amountofcards" placeholder="Enter number" v-model="cardamount">
@@ -12,12 +13,14 @@
 <script>
     import {eventBus} from '../main.js'
     import RenderCards from "./RenderCards";
+    import NavBar from '../Navbar.vue'
 
     export default {
         name: "Memory",
 
         components: {
-            RenderCards
+            RenderCards,
+            NavBar
         },
 
         data () {

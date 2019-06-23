@@ -1,10 +1,17 @@
 <template>
-    <div id="Fitnesstrack"></div>
+    <div id="Fitnesstrack">
+        <NavBar></NavBar>
+    </div>
 </template>
 
 <script>
+    import NavBar from '../Navbar.vue'
+
     export default {
-        name: "FitnessTrack"
+        name: "FitnessTrack",
+        components: {
+            NavBar,
+        }
     }
 </script>
 

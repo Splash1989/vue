@@ -1,16 +1,5 @@
 <template>
   <div>
-    <NavBar></NavBar>
-    <div>
-      <p id="name">Michael Bund (B.Sc)</p>
-      <p id="job">Softwaredeveloper</p>
-    </div>
-    <technology></technology>
-    <!--<Aboutme></Aboutme>-->
-    <!--<Whatido></Whatido>-->
-    <!--<Projects></Projects>-->
-    <!--<DontHitButton></DontHitButton>-->
-    <!--<RiverLevel></RiverLevel>-->
       <router-view></router-view>
   </div>
 </template>

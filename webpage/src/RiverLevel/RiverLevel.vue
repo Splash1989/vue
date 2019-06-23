@@ -1,5 +1,6 @@
 <template>
     <div id="riverLevel">
+        <NavBar></NavBar>
         <div>Riverlevel of Elbe in Dresden</div>
         <div id="graph">
             <table class="watergauge">
@@ -24,9 +25,15 @@
 </template>
 
 <script>
+    import NavBar from '../Navbar.vue'
     import axios from "axios";
+
     export default {
         name: "RiverLevel",
+        components: {
+            NavBar,
+        },
+
         data () {
             return {
                 riverObject: {},
