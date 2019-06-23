@@ -12,7 +12,7 @@
                     this.waterGauge[4], this.waterGauge[5], this.waterGauge[6], this.waterGauge[7], this.waterGauge[8],
                     this.waterGauge[9], this.waterGauge[10], this.waterGauge[11], this.waterGauge[12], this.waterGauge[13],
                     this.waterGauge[14]]"
-                    :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+                    :gradient="['#0404B4']"
                     auto-draw
                     smooth
             >
@@ -96,13 +96,14 @@
         text-align: center;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 1px;
-        background-color: #ffffff;
         margin-left: 30px;
         justify-content: space-around;
     }
     #graph {
         display: flex;
         grid-template-colums: 1fr 1fr;
+        background-color: white;
+        opacity: 0.5;
     }
     .watergauge {
         margin-top: auto;
@@ -110,4 +111,10 @@
         display: grid;
         grid-template-columns: 1fr;
     }
+
+    .timelineentry {
+        font-size: 20px;
+        color: white;
+    }
+
 </style>
