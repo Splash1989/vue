@@ -1,7 +1,6 @@
 <template>
     <div id="riverLevel">
         <NavBar></NavBar>
-        <div>Riverlevel of Elbe in Dresden</div>
         <div id="graph">
             <table class="watergauge">
                 <tr class="line" >{{this.newArray[0]}} cm</tr>
@@ -20,6 +19,11 @@
         </div>
         <div class="timeline">
             <p class="timelineentry"  v-for="time in timeline">{{time}}</p>
+        </div>
+        <div id="inputcity">
+            <div>Watergauge {{this.city}}</div>
+            <label>want to know of your city? </label><input class="city" v-model="input"/>
+            <button @click="city = input">Get riverlevel</button>
         </div>
     </div>
 </template>
@@ -46,16 +50,19 @@
                 length: 0,
                 same: 0,
                 newArray: [],
+                city: 'DRESDEN',
+                input: '',
+                citystorage: ''
             }
         },
         mounted() {
             var _this = this;
             setInterval (function () {
-                axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/measurements.json?start=P15D")
+                axios.get('https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/'+_this.city+'/W/measurements.json?start=P15D')
                     .then(response => _this.riverObject = response);
                 _this.newPost();
             }, 5000);
-            axios.get("https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/measurements.json?start=P15D")
+            axios.get('https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/'+_this.city+'/W/measurements.json?start=P15D')
                 .then(response => this.riverObject = response)
         },
         methods: {
@@ -73,8 +80,9 @@
             },
             newPost() {
                 var _this = this;
-                if (this.storage !== this.riverObject.data[1439].timestamp) {
+                if (this.storage !== this.riverObject.data[1439].timestamp | this.citystorage !== this.city) {
                     this.storage = this.riverObject.data[1439].timestamp;
+                    this.citystorage = this.city;
                     this.z = 0;
                     for (this.y = 1424; this.y <= 1439; this.y++) {
                         this.waterGauge[this.z] = this.riverObject.data[this.y].value;
