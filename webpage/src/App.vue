@@ -1,12 +1,22 @@
 <template>
   <div>
-    <div v-if="ie">
-      <p class="internetexplorer">test</p>
-    </div>
-      <router-view></router-view>
-    <div id="startimpressum">
-      <router-link to="/Impressum">Impressum</router-link>
-    </div>
+      <div v-if="ie">
+          <router-view></router-view>
+          <div id="startimpressum">
+              <router-link to="/Impressum">Impressum</router-link>
+          </div>
+      </div>
+      <div v-if="ie == 0">
+          <div class="modalframe">
+              <div class="innermodal">
+                  <p>Ur using Internet Explorer, really?</p>
+                  <a href="https://www.google.com/intl/de/chrome/">Chrome</a>
+              </div>
+              <!--<div class="overlay">-->
+                  <!--<img src="./picture/police.jpg" height="200" width="400" alt="police" border="2" align="right" hspace="50" vspace="50">-->
+              <!--</div>-->
+          </div>
+      </div>
   </div>
 </template>
 
@@ -55,24 +65,36 @@ export default {
 </script>
 
 <style>
-  #name {
-    font-size: 60px;
-    text-align: center;
-    color: white;
+  .modalframe {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0%;
+      overflow: auto;
+      background-color: black;
   }
-  #job {
-    font-size: 30px;
-    text-align: center;
-    color: white;
+
+  .innermodal {
+      background-color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.5;
   }
+
+  .overlay {
+      height: 200px;
+      width: 400px;
+      background-color: black;
+  }
+
 
   #startimpressum {
     padding-bottom: 20px;
     text-align: center;
-  }
-
-  .internetexplorer {
-    color: black;
   }
 
 </style>
