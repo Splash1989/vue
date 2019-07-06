@@ -26,4 +26,10 @@
 
 <style scoped>
 
+    #name, #job{
+        font-size: 50px;
+        text-align: center;
+        color: white;
+    }
+
 </style>

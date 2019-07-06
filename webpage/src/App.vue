@@ -1,20 +1,24 @@
 <template>
   <div>
-      <div v-if="ie">
-          <router-view></router-view>
-          <div id="startimpressum">
-              <router-link to="/Impressum">Impressum</router-link>
+      <div v-if="ie > 0">
+          <div class="modalframe">
+              <div class="bildmitbildunterschrift">
+                  <img src="./picture/facepalm.jpg" alt="facepalm"/>
+                  <div class="innermodal">
+                      <p>Hello and welcome, person from the middle ages</p>
+                      <p>That what you are calling a browser is not welcome here</p>
+                      <p>Please learn to use well-oiled technology and come back again</p>
+                      <a href="https://www.google.com/intl/de/chrome/">Chrome</a>
+                      <p>best regards</p>
+                      <p>your internet experience</p>
+                  </div>
+              </div>
           </div>
       </div>
       <div v-if="ie == 0">
-          <div class="modalframe">
-              <div class="innermodal">
-                  <p>Ur using Internet Explorer, really?</p>
-                  <a href="https://www.google.com/intl/de/chrome/">Chrome</a>
-              </div>
-              <!--<div class="overlay">-->
-                  <!--<img src="./picture/police.jpg" height="200" width="400" alt="police" border="2" align="right" hspace="50" vspace="50">-->
-              <!--</div>-->
+          <router-view></router-view>
+          <div id="startimpressum">
+              <router-link to="/Impressum">Impressum</router-link>
           </div>
       </div>
   </div>
@@ -51,7 +55,7 @@ export default {
     methods: {
         checkUserAgent() {
             if (/Trident/.test(window.navigator.userAgent) || /Internet Explorer/.test(window.navigator.appName)) {
-                ie = 1;
+                this.ie = 1;
             }
         }
     },
@@ -75,20 +79,33 @@ export default {
       margin-bottom: 0%;
       overflow: auto;
       background-color: black;
+      opacity: 1;
   }
 
-  .innermodal {
-      background-color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+  .bildmitbildunterschrift {
+      position: relative;
+      width: 100%;
+      height: 100%;
+  }
+
+  .bildmitbildunterschrift div {
+      background-color: silver;
+      position: absolute;
+      bottom: 5%;
+      margin-left: 5%;
+      margin-right: 5%;
+      border-radius: 20px;
+      line-height: 2em;
+      text-align: center;
       opacity: 0.5;
   }
 
-  .overlay {
-      height: 200px;
-      width: 400px;
-      background-color: black;
+  .bildmitbildunterschrift img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
   }
 
 

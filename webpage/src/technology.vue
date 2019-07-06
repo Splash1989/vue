@@ -21,12 +21,21 @@
 
 <style scoped>
 
+    /*#tecbackground{*/
+        /*background-color: #006600;*/
+        /*padding-bottom: 20px;*/
+        /*margin-top: 100px;*/
+        /*opacity: 0.6;*/
+    /*}*/
+
     #tecbackground{
         background-color: #006600;
         padding-bottom: 20px;
-        margin-top: 100px;
         opacity: 0.6;
+        height: 100%;
+        margin-top: 300px;
     }
+
     #jslogo, #githublogo, #bootstraplogo,
     gitlogo, #csslogo {
         fill: #ffffff;
