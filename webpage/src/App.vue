@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="template">
       <div v-if="ie > 0">
           <div class="modalframe">
               <div class="positions">
@@ -22,11 +22,8 @@
               </div>
           </div>
       </div>
-      <div v-if="ie == 0">
+      <div id="secondcontent" v-if="ie == 0">
           <router-view></router-view>
-          <div id="startimpressum">
-              <router-link to="/Impressum">Impressum</router-link>
-          </div>
       </div>
   </div>
 </template>
@@ -142,5 +139,7 @@ export default {
     padding-bottom: 20px;
     text-align: center;
   }
+
+  
 
 </style>
