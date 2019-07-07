@@ -24,6 +24,9 @@
                             <a class="dropdown-item" href="#" @click="riverlevel">Riverlevel</a>
                         </div>
                     </li>
+                    <li class="nav-item" @click="Impressum">
+                        <a class="nav-link" href="#">Impressum</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -47,6 +50,9 @@
             },
             riverlevel() {
                 this.$router.push('/River');
+            },
+            Impressum() {
+                this.$router.push('/Impressum');
             }
         }
     }
