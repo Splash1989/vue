@@ -1,7 +1,7 @@
 <template>
     <div id="startpage">
         <NavBar></NavBar>
-        <div>
+        <div id="namespace">
             <p id="name">Michael Bund (B.Sc)</p>
             <p id="job">Softwaredeveloper</p>
         </div>
@@ -27,7 +27,7 @@
 <style scoped>
 
     #name, #job{
-        font-size: 50px;
+        font-size: 30px;
         text-align: center;
         color: white;
     }

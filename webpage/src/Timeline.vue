@@ -194,7 +194,7 @@
         font-size: 1.4em;
         text-align: center;
         position: absolute;
-        top: 16px;
+        top: 34px;
         left: 50%;
         margin-left: -8px;
         background-color: #999999;
