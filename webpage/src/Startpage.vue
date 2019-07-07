@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="startpage">
         <NavBar></NavBar>
         <div>
             <p id="name">Michael Bund (B.Sc)</p>
@@ -30,6 +30,13 @@
         font-size: 50px;
         text-align: center;
         color: white;
+    }
+
+    #startpage{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
 </style>
