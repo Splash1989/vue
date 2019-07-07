@@ -118,7 +118,7 @@
         position: absolute;
         content: " ";
         width: 3px;
-        background-color: #eeeeee;
+        background-color: #FFFFFF;
         left: 50%;
         margin-left: -1.5px;
     }
@@ -145,7 +145,7 @@
     .timeline > li > .timeline-panel {
         width: 50%;
         float: left;
-        border: 1px solid #d4d4d4;
+        border: 1px solid #01DF01;
         border-radius: 2px;
         padding: 20px;
         position: relative;
@@ -188,15 +188,15 @@
     }
     .timeline > li > .timeline-badge {
         color: #fff;
-        width: 50px;
-        height: 50px;
+        width: 15px;
+        height: 15px;
         line-height: 50px;
         font-size: 1.4em;
         text-align: center;
         position: absolute;
         top: 16px;
         left: 50%;
-        margin-left: -25px;
+        margin-left: -8px;
         background-color: #999999;
         z-index: 100;
         border-top-right-radius: 50%;
@@ -218,21 +218,6 @@
         border-right-width: 14px;
         left: -14px;
         right: auto;
-    }
-    .timeline-badge.primary {
-        background-color: #2e6da4 !important;
-    }
-    .timeline-badge.success {
-        background-color: #3f903f !important;
-    }
-    .timeline-badge.warning {
-        background-color: #f0ad4e !important;
-    }
-    .timeline-badge.danger {
-        background-color: #d9534f !important;
-    }
-    .timeline-badge.info {
-        background-color: #5bc0de !important;
     }
     .timeline-title {
         margin-top: 0;
