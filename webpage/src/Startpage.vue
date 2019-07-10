@@ -1,9 +1,14 @@
 <template>
     <div id="startpage">
         <NavBar></NavBar>
-        <div id="namespace">
-            <p id="name">Michael Bund (B.Sc)</p>
-            <p id="job">Softwaredeveloper</p>
+        <div class="box">
+            <div id="favconarea">
+
+            </div>
+            <div id="namespace">
+                <p id="name">Michael Bund (B.Sc)</p>
+                <p id="job">Softwaredeveloper</p>
+            </div>
         </div>
         <technology></technology>
     </div>
@@ -38,5 +43,23 @@
         flex-direction: column;
         justify-content: space-between;
     }
+
+    .box {
+        display: flex;
+    }
+
+    #favconarea {
+        margin-left: 30px;
+        width: 45%;
+        height: 250px;
+        background-color: black;
+        border-radius: 10px;
+    }
+
+    #namespace {
+        margin-left: 20%;
+        margin-top: 5%;
+    }
+
 
 </style>

@@ -21,13 +21,6 @@
 
 <style scoped>
 
-    /*#tecbackground{*/
-        /*background-color: #006600;*/
-        /*padding-bottom: 20px;*/
-        /*margin-top: 100px;*/
-        /*opacity: 0.6;*/
-    /*}*/
-
     #tecbackground{
         background-color: #006600;
         padding-bottom: 20px;
