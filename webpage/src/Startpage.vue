@@ -47,7 +47,6 @@
     .box {
         display: flex;
     }
-
     #favconarea {
         margin-left: 30px;
         width: 45%;
