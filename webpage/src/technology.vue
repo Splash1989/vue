@@ -39,6 +39,9 @@
         text-align: center;
         font-size: 40px;
         color: #ffffff;
+        -ms-user-select: None;
+        -moz-user-select: None;
+        -webkit-user-select: None;
     }
 
 </style>
