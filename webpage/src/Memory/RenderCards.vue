@@ -78,6 +78,11 @@
             },
 
             checkCards (node) {
+
+                if (/white/.test(node.target.outerHTML)) {
+                    return;
+                }
+
                 if (!node) {
                     return;
                 }
@@ -120,13 +125,16 @@
         background-color: blue;
         display: inline-block;
         margin-top: 0px;
+        border-radius: 5px;
         -ms-user-select: None;
         -moz-user-select: None;
         -webkit-user-select: None;
+        transition: all .2s;
     }
 
+
     .memoryfield:hover {
-        /*Kachel nach vorne Effekt*/
+        transform: scale(1.1);
     }
 
     #list {
