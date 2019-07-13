@@ -1,11 +1,14 @@
 <template>
-    <div>
-        <p v-if="startgame">moves {{zuege}}</p>
-        <p v-if="startgame">complexity factor: </p>
-        <button v-if="startgame" v-model="factor">easy</button>
-        <button v-if="startgame" v-model="factor">hard</button>
-        <button v-if="startgame" v-model="factor">nightmare</button>
+    <div id="rendercards">
+        <!--<p v-if="startgame">moves {{zuege}}</p>-->
+        <!--<p v-if="startgame">complexity factor: </p>-->
+        <!--<button v-if="startgame" v-model="factor">easy</button>-->
+        <!--<button v-if="startgame" v-model="factor">hard</button>-->
+        <!--<button v-if="startgame" v-model="factor">nightmare</button>-->
         <div id="list">
+            <div class="hintbox">
+                <p class="hint" v-if="showHint">Choose an other card, dude</p>
+            </div>
             <div class="listfield">
                 <p class="memoryfield" @click="checkCards" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
             </div>
@@ -23,8 +26,9 @@
           return {
               cardamount: '',
               startsorting: '',
-              startgame: '',
+              startgame: 1,
               sortedFields: '',
+              showHint: 0,
               counter: 0,
               zuege: 0,
               factor: 0,
@@ -80,6 +84,20 @@
             checkCards (node) {
 
                 if (/white/.test(node.target.outerHTML)) {
+                    _this = this;
+                    this.showHint = 1;
+                    setTimeout(function () {
+                        _this.showHint = 0;
+                    }, 2000);
+                    return;
+                }
+
+                if (/green/.test(node.target.outerHTML)) {
+                    _this = this;
+                    this.showHint = 1;
+                    setTimeout(function () {
+                        _this.showHint = 0;
+                    }, 2000);
                     return;
                 }
 
@@ -120,6 +138,25 @@
 
 <style scoped>
 
+    #rendercards {
+        background-color: black;
+
+    }
+
+    .hintbox {
+        position: absolute;
+        top: 130px;
+    }
+
+    .hint {
+        color: black;
+        background-color: red;
+        border-radius: 5px;
+        padding: 3px;
+        opacity: 0.6;
+        z-index: 1000;
+    }
+
     .memoryfield {
         color: blue;
         background-color: blue;
@@ -129,18 +166,19 @@
         -ms-user-select: None;
         -moz-user-select: None;
         -webkit-user-select: None;
-        transition: all .2s;
+        transition: all .4s;
     }
 
 
     .memoryfield:hover {
-        transform: scale(1.1);
+        transform: scale(1.3);
     }
 
     #list {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
     }
 
     .listfield {

@@ -55,6 +55,8 @@
 </script>
 
 <style scoped>
-    #memorygame {}
+    #memorygame {
+        background-color: black;
+    }
 
 </style>
