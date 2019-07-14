@@ -10,7 +10,7 @@
                 <p class="hint" v-if="showHint">Choose an other card, dude</p>
             </div>
             <div class="listfield">
-                <p class="memoryfield" @click="checkCards" v-if="startgame" v-for="field in sortedFields">{{field}}</p>
+                <p class="memoryfield" v-html="field.favicon" @click="checkCards" v-if="startgame" v-for="field in sortedFields">{{field.favicon}}</p>
             </div>
         </div>
     </div>
@@ -34,10 +34,38 @@
               factor: 0,
               nodes: [],
 
-              fields:
-                  ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
-                      '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
-                       '15', '15'],
+              fields: [
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/javascript.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/javascript.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/react-native.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/react-native.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/css3.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/css3.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/nodejs.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/nodejs.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/angularjs.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/angularjs.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/npm.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/npm.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/git.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/git.png">'},
+                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/github.png">'},
+                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/github.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/bootstrap.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/bootstrap.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/jquery.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/jquery.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/java-coffee-cup-logo.png">'},
+                  {favicon: '<img src="https://img.icons8.com/color/40/000000/java-coffee-cup-logo.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/c-plus-plus-logo.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/c-plus-plus-logo.png">'},
+                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/json.png">'},
+                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/json.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/c.png">'},
+                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/c.png">'},
+              ],
 
               fieldshard:
                   ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
@@ -114,13 +142,13 @@
                         this.zuege = this.zuege + 1;
                         var nodes = document.querySelectorAll('p[style="background-color: white;"]');
 
-                        if(nodes[0].textContent == nodes[1].textContent){
+                        if(nodes[0].innerHTML == nodes[1].innerHTML){
                             nodes[0].style.backgroundColor = 'green';
                             nodes[1].style.backgroundColor = 'green';
                             _this.counter = 0;
                         }
 
-                        if(nodes[0].textContent != nodes[1].textContent){
+                        if(nodes[0].innerHTML != nodes[1].innerHTML){
                             setTimeout(function(){
                                 nodes[0].style.backgroundColor = 'blue';
                                 nodes[1].style.backgroundColor = 'blue';
@@ -167,6 +195,10 @@
         -moz-user-select: None;
         -webkit-user-select: None;
         transition: all .4s;
+    }
+
+    .memoryfield > img {
+        z-index: -10;
     }
 
 
