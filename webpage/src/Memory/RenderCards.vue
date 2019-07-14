@@ -1,10 +1,10 @@
 <template>
     <div id="rendercards">
-        <!--<p v-if="startgame">moves {{zuege}}</p>-->
-        <!--<p v-if="startgame">complexity factor: </p>-->
-        <!--<button v-if="startgame" v-model="factor">easy</button>-->
-        <!--<button v-if="startgame" v-model="factor">hard</button>-->
-        <!--<button v-if="startgame" v-model="factor">nightmare</button>-->
+        <p v-if="startgame">moves {{zuege}}</p>
+        <p v-if="startgame">complexity factor: </p>
+        <button v-if="startgame" @click="factor = 1">easy</button>
+        <button v-if="startgame" @click="factor = 2">middle</button>
+        <button v-if="startgame" @click="factor = 3">hard</button>
         <div id="list">
             <div class="hintbox">
                 <p class="hint" v-if="showHint">Choose an other card, dude</p>
@@ -36,46 +36,57 @@
 
               fields: [
                   {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/javascript.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/javascript.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/react-native.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/react-native.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/css3.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/css3.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/nodejs.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/nodejs.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/angularjs.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/angularjs.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/npm.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/npm.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/git.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/git.png">'},
-                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/github.png">'},
-                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/github.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/bootstrap.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/bootstrap.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/jquery.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/jquery.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/java-coffee-cup-logo.png">'},
-                  {favicon: '<img src="https://img.icons8.com/color/40/000000/java-coffee-cup-logo.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/c-plus-plus-logo.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios-filled/40/000000/c-plus-plus-logo.png">'},
-                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/json.png">'},
-                  {favicon: '<img src="https://img.icons8.com/nolan/40/000000/json.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/c.png">'},
-                  {favicon: '<img src="https://img.icons8.com/ios/40/000000/c.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/javascript.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/react-native.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/react-native.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/css3.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/css3.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/nodejs.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/nodejs.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/angularjs.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/angularjs.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/npm.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/npm.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/git.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/git.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/nolan/40/000000/github.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/nolan/40/000000/github.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/bootstrap.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/bootstrap.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/jquery.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/jquery.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/java-coffee-cup-logo.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/java-coffee-cup-logo.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/c-plus-plus-logo.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/c-plus-plus-logo.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/nolan/40/000000/json.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/nolan/40/000000/json.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/c.png">'},
+                  {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/c.png">'},
               ],
 
-              fieldshard:
-                  ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
-                  '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
-                  '15', '15'],
+              fieldseasy:
+                  [
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/javascript.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/javascript.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/react-native.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/react-native.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios-filled/40/000000/html-5.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/css3.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/ios/40/000000/css3.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/nodejs.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/nodejs.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/angularjs.png">'},
+                      {favicon: '<img style="visibility: hidden" src="https://img.icons8.com/color/40/000000/angularjs.png">'},
+                  ],
 
               fieldsnightmare:
-                  ['1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8',
-                  '8', '9', '9', '10', '10', '11', '11', '12', '12', '13', '13', '14', '14',
-                  '15', '15'],
+                  [
+
+                  ],
           }
         },
 
@@ -83,7 +94,8 @@
             eventBus.$on('rendercards', data => {
                 this.cardamount = data.cardamount,
                 this.startsorting = data.startsorting,
-                this.sortedFields = this.sortFields(this.fields)
+                    this.sortedFields = this.sortFields(this.fields)
+                // this.testmethod();
             })
             eventBus.$on('remove', data => {
                 this.startgame = data.startgame,
@@ -109,9 +121,20 @@
                 return array;
             },
 
+            testmethod () {
+                console.warn('Ausgelöst bruder', this.factor);
+                if (this.factor === 1) {
+                    this.sortedFields = this.sortFields(this.fieldseasy)
+                } else if (this.factor === 2) {
+                    this.sortedFields = this.sortFields(this.fields)
+                } else if (this.factor === 3) {
+                    this.sortedFields = this.sortFields(this.fields)
+                }
+            },
+
             checkCards (node) {
 
-                if (/white/.test(node.target.outerHTML)) {
+                if (/white/.test(node.target.outerHTML) | /visible/.test(node.target.style.cssText)) {
                     _this = this;
                     this.showHint = 1;
                     setTimeout(function () {
@@ -138,6 +161,8 @@
 
                 if (_this.counter <= 2) {
                     node.currentTarget.style.backgroundColor = 'white';
+                    node.currentTarget.querySelector('img').style.visibility = 'visible';
+
                     if(_this.counter == 2){
                         this.zuege = this.zuege + 1;
                         var nodes = document.querySelectorAll('p[style="background-color: white;"]');
@@ -145,6 +170,10 @@
                         if(nodes[0].innerHTML == nodes[1].innerHTML){
                             nodes[0].style.backgroundColor = 'green';
                             nodes[1].style.backgroundColor = 'green';
+                            setTimeout(function () {
+                                nodes[0].hidden = true;
+                                nodes[1].hidden = true;
+                            }, 1500);
                             _this.counter = 0;
                         }
 
@@ -152,6 +181,9 @@
                             setTimeout(function(){
                                 nodes[0].style.backgroundColor = 'blue';
                                 nodes[1].style.backgroundColor = 'blue';
+                                nodes[0].querySelector('img').style.visibility = 'hidden';
+                                nodes[1].querySelector('img').style.visibility = 'hidden';
+
                                 _this.counter = 0;
                             }, 2000);
                         }
@@ -191,16 +223,12 @@
         display: inline-block;
         margin-top: 0px;
         border-radius: 5px;
+        border: solid 3px black;
         -ms-user-select: None;
         -moz-user-select: None;
         -webkit-user-select: None;
         transition: all .4s;
     }
-
-    .memoryfield > img {
-        z-index: -10;
-    }
-
 
     .memoryfield:hover {
         transform: scale(1.3);
@@ -211,6 +239,10 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+    }
+
+    #memoryfield img {
+        visibility: hidden;
     }
 
     .listfield {

@@ -1,8 +1,6 @@
 <template>
     <div id="memorygame">
         <NavBar></NavBar>
-        <p>Eingabe</p>
-        <p>How many cards?</p>
         <input id="amountofcards" placeholder="Enter number" v-model="cardamount">
         <button :disabled="isNumberEmpty" id="startbutton" @click="rendercards">Start game</button>
         <button @click="remove">End game</button>
