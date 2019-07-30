@@ -95,7 +95,7 @@
                 this.cardamount = data.cardamount,
                 this.startsorting = data.startsorting,
                     this.sortedFields = this.sortFields(this.fields)
-                // this.testmethod();
+                 this.testmethod();
             })
             eventBus.$on('remove', data => {
                 this.startgame = data.startgame,
@@ -124,10 +124,13 @@
             testmethod () {
                 console.warn('Ausgelöst bruder', this.factor);
                 if (this.factor === 1) {
+                    console.warn('- - call 1 - - ');
                     this.sortedFields = this.sortFields(this.fieldseasy)
                 } else if (this.factor === 2) {
+                    console.warn('- - call 2 - - ');
                     this.sortedFields = this.sortFields(this.fields)
                 } else if (this.factor === 3) {
+                    console.warn('- - call 3 - - ');
                     this.sortedFields = this.sortFields(this.fields)
                 }
             },
