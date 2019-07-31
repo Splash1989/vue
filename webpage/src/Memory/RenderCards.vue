@@ -1,10 +1,12 @@
 <template>
     <div id="rendercards">
-        <p v-if="startgame">moves {{zuege}}</p>
-        <p v-if="startgame">complexity factor: </p>
-        <button v-if="startgame" @click="factor = 1">easy</button>
-        <button v-if="startgame" @click="factor = 2">middle</button>
-        <button v-if="startgame" @click="factor = 3">hard</button>
+        <div id="complexity">
+            <p v-if="startgame">moves {{zuege}}</p>
+            <p v-if="startgame">complexity factor: </p>
+            <button v-if="startgame" @click="factor = 1">easy</button>
+            <button v-if="startgame" @click="factor = 2">middle</button>
+            <button v-if="startgame" @click="factor = 3">hard</button>
+        </div>
         <div id="list">
             <div class="hintbox">
                 <p class="hint" v-if="showHint">Choose an other card, dude</p>
@@ -24,7 +26,6 @@
 
         data () {
           return {
-              cardamount: '',
               startsorting: '',
               startgame: 1,
               sortedFields: '',
@@ -92,7 +93,6 @@
 
         created () {
             eventBus.$on('rendercards', data => {
-                this.cardamount = data.cardamount,
                 this.startsorting = data.startsorting,
                     this.sortedFields = this.sortFields(this.fields)
                  this.testmethod();
@@ -174,8 +174,8 @@
                             nodes[0].style.backgroundColor = 'green';
                             nodes[1].style.backgroundColor = 'green';
                             setTimeout(function () {
-                                nodes[0].hidden = true;
-                                nodes[1].hidden = true;
+                                nodes[0].style.opacity = 0;
+                                nodes[1].style.opacity = 0;
                             }, 1500);
                             _this.counter = 0;
                         }
@@ -203,7 +203,15 @@
 
     #rendercards {
         background-color: black;
+        display: flex;
+        padding: 20px;
 
+    }
+
+    #complexity {
+        margin-top: 90px;
+        margin-right: 20px;
+        color: white;
     }
 
     .hintbox {
@@ -257,4 +265,4 @@
         grid-gap: 1px;
     }
 
-</style>
+</style>  

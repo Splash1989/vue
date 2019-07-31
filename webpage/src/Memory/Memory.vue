@@ -1,9 +1,10 @@
 <template>
     <div id="memorygame">
         <NavBar></NavBar>
-        <input id="amountofcards" placeholder="Enter number" v-model="cardamount">
-        <button :disabled="isNumberEmpty" id="startbutton" @click="rendercards">Start game</button>
-        <button @click="remove">End game</button>
+        <div id="gamecontrole">
+            <button id="startbutton" @click="rendercards">Start game</button>
+            <button @click="remove">End game</button>
+        </div>
         <RenderCards></RenderCards>
     </div>
 </template>
@@ -45,9 +46,6 @@
         },
 
         computed: {
-            isNumberEmpty () {
-                return !this.cardamount.length
-            }
         },
     }
 </script>
