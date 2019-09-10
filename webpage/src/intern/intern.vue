@@ -1,15 +1,12 @@
 <template>
     <div id="intern">
         <NavBar></NavBar>
-        <div>
-            <p>Please log in</p>
-        </div>
+
 
         <div id="login">
-            <p class="username">usernamede</p>
-            <input>
-            <p class="pw">password</p>
-            <input>
+            <input placeholder="username">
+            <input placeholder="password">
+            <button>Login</button>
         </div>
     </div>
 </template>
@@ -27,17 +24,36 @@
 </script>
 
 <style scoped>
-    #intern {
-        background-color: black;
-        height: 100%;
-    }
     p {
         color: white;
     }
     #login {
-        display: grid;
-        grid-template-columns: max-content max-content;
-        grid-gap: 10px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: max-content;
+        margin-top: 15%;
+    }
+    input {
+        font-size: 11px; font-family: Verdana;
+        COLOR: #7F91B4;
+        margin: 5px;
+        padding: 7px;
+        border: 2px;
+        font-size: 10px;
+        font-weight: bold;
+        background-color: transparent;
+        border: 1px;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-right-style: solid;
+        border-top-style: solid;
+        border-color: #315172;
+    }
+    button {
+        background-color: white;
+        border: 0px;
+        border-radius: 6px;
     }
 
 </style>
