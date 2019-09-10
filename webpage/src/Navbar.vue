@@ -22,12 +22,13 @@
                             <a class="dropdown-item" href="#" @click="memory">Memorycard game</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" @click="riverlevel">Riverlevel</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" @click="youtubestorage">Youtube Storage</a>
                         </div>
                     </li>
                     <li class="nav-item" @click="Impressum">
                         <a class="nav-link" href="#">Impressum</a>
+                    </li>
+                    <li class="nav-item" @click="intern">
+                        <a class="nav-link" href="#">intern</a>
                     </li>
                 </ul>
             </div>
@@ -56,8 +57,8 @@
             Impressum() {
                 this.$router.push('/Impressum');
             },
-            youtubestorage() {
-                this.$router.push('/Youtube')
+            intern() {
+                this.$router.push('/intern');
             }
         }
     }

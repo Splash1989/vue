@@ -137,7 +137,7 @@
 
             checkCards (node) {
 
-                if (/white/.test(node.target.outerHTML) | /visible/.test(node.target.style.cssText)) {
+                if (/white/.test(node.target.outerHTML) || /visible/.test(node.target.style.cssText)) {
                     _this = this;
                     this.showHint = 1;
                     setTimeout(function () {
