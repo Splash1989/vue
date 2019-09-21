@@ -4,9 +4,9 @@
 
 
         <div id="login">
-            <input placeholder="username">
-            <input placeholder="password">
-            <button>Login</button>
+            <input placeholder="username" v-model="username">
+            <input placeholder="password" v-model="userpassword">
+            <button @click="login">Login</button>
         </div>
     </div>
 </template>
@@ -16,6 +16,26 @@
 
     export default {
         name: "intern",
+
+        data () {
+            return {
+                username: '',
+                userpassword: ''
+            }
+        },
+
+        methods: {
+          login () {
+              this.$http.post('https://webpage-858f1.firebaseio.com/data.json', {
+                  loginname: this.username,
+                  loginpwd: this.userpassword
+              }).then(response => {
+                  console.warn('success', response)
+              }, err => {
+                  console.warn('err', err)
+              })
+          }
+        },
 
         components: {
             NavBar
