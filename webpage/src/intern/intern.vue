@@ -6,8 +6,12 @@
         <div id="login">
             <input placeholder="username" v-model="username">
             <input placeholder="password" v-model="userpassword">
-            <button @click="login">Login</button>
+            <button @click="checkLoginData">Login</button>
         </div>
+        <div v-if="authorized">
+            <p id="logedin">Sie sind nun eingeloggt</p>
+        </div>
+
     </div>
 </template>
 
@@ -20,21 +24,35 @@
         data () {
             return {
                 username: '',
-                userpassword: ''
+                userpassword: '',
+                logindata: [],
+                authorized: false
             }
         },
 
         methods: {
-          login () {
-              this.$http.post('https://webpage-858f1.firebaseio.com/data.json', {
-                  loginname: this.username,
-                  loginpwd: this.userpassword
-              }).then(response => {
-                  console.warn('success', response)
-              }, err => {
-                  console.warn('err', err)
-              })
-          }
+            checkLoginData () {
+                this.getloginData().then(logindata => {
+                    this.logindata = logindata;
+                    for (var i = 0; i < logindata.length; i++) {
+                        if (logindata[i].loginname === this.username && logindata[i].loginpwd === this.userpassword) {
+                            this.authorized = true;
+                        }
+                    }
+                })
+            },
+            getloginData () {
+                return this.$http.get('https://webpage-858f1.firebaseio.com/data.json').then(response =>
+                    response.json()).then(json =>{
+                        return Object.keys(json).map(function(property){
+                            return {
+                                loginname: json[property].loginname,
+                                loginpwd: json[property].loginpwd,
+                                id: property
+                            }
+                        });
+                })
+            }
         },
 
         components: {
@@ -72,8 +90,5 @@
     }
     button {
         background-color: white;
-        border: 0px;
-        border-radius: 6px;
     }
-
 </style>
