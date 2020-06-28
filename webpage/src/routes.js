@@ -1,6 +1,6 @@
 import RiverLevel from './RiverLevel/RiverLevel.vue'
 import Aboutme from './Aboutme.vue'
-import Memory from './Memory/memory.vue'
+import Memory from './Memory/Memory.vue'
 import Whatido from './Whatido.vue'
 import Startpage from './Startpage.vue'
 import Impressum from './Impressum.vue'
